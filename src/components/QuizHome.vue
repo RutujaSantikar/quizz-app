@@ -74,6 +74,7 @@ span{
   border-radius: 20px;
   width: 120%;
   font-weight:500;
+  cursor: pointer;
 }
 .login-btn:hover{
   background-color: #2af926 ;
