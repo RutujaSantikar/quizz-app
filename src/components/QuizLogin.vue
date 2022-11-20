@@ -1,17 +1,15 @@
 <template>
   <div>
-    
-    <router-view></router-view>
+  login works
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'App',
+name:"QuizLogin"
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>
