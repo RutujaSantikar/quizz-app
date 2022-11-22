@@ -12,11 +12,14 @@
         </div>
        </div>
     </section>
+    <section v-else>
+        <button class="auth-btns" @click= "logout">Logout</button>
+    </section>
   </div>
 </template>
 
 <script>
-import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword , signOut } from 'firebase/auth';
 import { auth } from '../firebase';
 export default {
 name:"QuizLogin",
@@ -33,6 +36,14 @@ data(){
 },
 
 methods:{
+    logout(){
+        const auth = getAuth();
+        signOut(auth).then(()=>{
+            this.$store.dispatch('setUser', null);
+        })
+
+     
+    },
     toggleView(){
      this.loginView = !this.loginView;
     },
@@ -111,7 +122,7 @@ computed:{
           return this.emailValid && this.passwordMatch;
         }
     },
-    userLoogedIn(){
+    userLoggedIn(){
         return this.$store.getters.currentUserLoggedIn;
     }
 
