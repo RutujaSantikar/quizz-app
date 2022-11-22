@@ -39,7 +39,8 @@ methods:{
     logout(){
         const auth = getAuth();
         signOut(auth).then(()=>{
-            this.$store.dispatch('setUser', null);
+            // this.$store.dispatch('setUser', null);
+             this.$router.push('/');
         })
 
      
