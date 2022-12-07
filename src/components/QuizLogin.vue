@@ -4,11 +4,12 @@
          <h1>Login or Signup</h1>
          <p v-if= "error">{{ error }}</p>
        <div class="auth-form"> 
+        <h3> {{loginView ? 'Login' : "Signup"}}</h3>
         <div><input type="text" placeholder="email" v-model= "email"/></div>
         <div><input type="password" placeholder="password" v-model= "password"/></div>
         <div><input v-if= "!loginView" type="password" placeholder="confirm password"  v-model= "confirmPassword"/></div>
         <div><button :disabled= "!onSubmit" @click= "authenticate" class="auth-btns"> {{ loginView ? 'Login' : "Signup" }}</button> 
-         <button class="auth-btns"><a class="toggle" @click= "toggleView">{{ !loginView ? 'Login' : "Signup" }}</a> </button>
+         <button class="auth-btns "><a class="toggle" @click= "toggleView">{{ !loginView ? 'Login' : "Signup" }}</a> </button>
         </div>
        </div>
     </section>
@@ -137,6 +138,10 @@ h1{
     text-align: center;
     margin-bottom: 1em;
 }
+h3{
+    text-align: center;
+    padding: 5px;
+}
 section{
     width: 30%;
     margin: 6em auto;
@@ -166,6 +171,11 @@ input{
   cursor: pointer;
   margin-right: 10px;
 }
+.auth-btns:hover{
+    background-color: white;
+    color: black;
+}
+
 
 @media(max-width:600px){
     section{
